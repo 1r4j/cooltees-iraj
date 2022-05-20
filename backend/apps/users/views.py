@@ -10,11 +10,6 @@ from .mixins import CustomLoginRequiredMixin
 # Create your views here.
 
 
-class UserList(generics.ListAPIView):
-    queryset = User.objects.all()[:20]
-    serializer_class = UserSerializer
-
-
 class UserSignUp(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSignUpSerializer

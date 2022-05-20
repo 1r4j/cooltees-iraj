@@ -4,7 +4,7 @@ const initialState = {
         list: []
     },
     users: {
-        user_name: '',
+        username: '',
         email: '',
         token: '',
         token_expires_at: ''

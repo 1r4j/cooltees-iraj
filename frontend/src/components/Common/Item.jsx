@@ -15,10 +15,10 @@ const Item = ({ item }) => {
 
 
     useEffect(() => {
-        if (carts != undefined && carts.length > 0) {
+        if (carts !== undefined && carts.length > 0) {
             console.log('carts');
             console.log(carts);
-            let matchedCarts = carts.filter(cart => cart.item.id == item.id);
+            let matchedCarts = carts.filter(cart => cart.item.id === item.id);
             console.log('matchedCarts');
             console.log(matchedCarts);
             if (matchedCarts.length > 0) {

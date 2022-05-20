@@ -103,8 +103,8 @@ export default class API {
     // //////////////////////////////////////
 
     getCarts = async () => {
-        let url = '/carts/';
-        const carts = await api
+        let url = '/cart/';
+        const cart = await api
             .get(url)
             .then(response => {
                 return response.data;
@@ -112,7 +112,7 @@ export default class API {
             .catch(error => {
                 throw new Error(error);
             });
-        return carts;
+        return cart;
     };
 
     addCarts = async item_id => {
@@ -146,7 +146,7 @@ export default class API {
 
     deleteCarts = async cart_id => {
         const response = await api
-            .delete('/carts/delete/' + cart_id + '/')
+            .delete('/cart/delete/' + cart_id + '/')
             .then(response => {
                 return response.data;
             })
@@ -163,7 +163,7 @@ export default class API {
 
     orderAdd = async (params = {}) => {
         const order = await api
-            .post('/orde/add/', params)
+            .post('/order/add/', params)
             .then(response => {
                 return response.data;
             })

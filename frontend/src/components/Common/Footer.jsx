@@ -2,9 +2,6 @@ import React from 'react'
 import logo2 from '../../assets/img/logo2.png';
 import cr from '../../assets/img/cr.png';
 
-
-
-
 export default function Footer() {
     return (
         <div><footer class="footer">

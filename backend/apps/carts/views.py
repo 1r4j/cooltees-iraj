@@ -11,7 +11,7 @@ from .models import Cart
 from .forms import CartForm
 
 
-class CartList(generics.ListAPIView):
+class CartList(CustomLoginRequiredMixin, generics.ListAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
     # filter_backends = [DjangoFilterBackend]
@@ -23,7 +23,7 @@ class CartList(generics.ListAPIView):
         return self.list(request, *args, **kwargs)
 
 
-class CartAdd(generics.CreateAPIView):
+class CartAdd(CustomLoginRequiredMixin, generics.CreateAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartAddSerializer
 
@@ -33,7 +33,7 @@ class CartAdd(generics.CreateAPIView):
         return self.create(request, *args, **kwargs)
 
 
-class CartDelete(generics.DestroyAPIView):
+class CartDelete(CustomLoginRequiredMixin, generics.DestroyAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
 
@@ -49,7 +49,7 @@ class CartDelete(generics.DestroyAPIView):
         return self.destroy(request, *args, **kwargs)
 
 
-class CartUpdate(generics.UpdateAPIView):
+class CartUpdate(CustomLoginRequiredMixin, generics.UpdateAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
 

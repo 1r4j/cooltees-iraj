@@ -3,6 +3,7 @@ import Item from '../components/Common/Item'
 import { useDispatch, useSelector } from 'react-redux';
 import { getItems } from '../reducks/items/selectors';
 import { fetchItems } from '../reducks/items/operations';
+import Header from '../components/Common/Header';
 
 
 
@@ -22,6 +23,7 @@ export default function Home() {
 
   return (
     <>
+      <Header />
       <section
       >
         <div class="selected">Selected Just for You</div>
