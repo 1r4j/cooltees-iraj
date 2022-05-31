@@ -35,7 +35,7 @@ const Cart = () => {
                     <thead>
                         <tr>
                             <td>Product</td>
-                            <td>Size</td>
+                            {/* <td>Size</td> */}
                             <td>Amount</td>
                             <td>Price</td>
                             <td></td>

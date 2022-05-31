@@ -59,7 +59,7 @@
   }
   /******************************** GRIDS ********************************/
   
-  .arrow-container {
+  /* .arrow-container {
     height: 20vw;
     display: flex;
     align-items: center;
@@ -69,7 +69,7 @@
   
   .arrow-container img {
     width: 100%;
-  }
+  } */
   
   /******************************** SELECTED ******************************/
   .selected {
@@ -81,13 +81,14 @@
   
   .selected-just-for-you {
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr;
+    grid-template-columns:repeat(4, 19vw);
     grid-column-gap: 4vw;
     grid-row-gap: 15vw;
     position: relative;
     margin-top: 3vw;
     align-items: center;
     justify-items: center;
+    justify-content: center;
   }
 
 .card {
@@ -250,6 +251,11 @@
     gap: 20vw;
   }
   
+  .btns {
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+  }
   .btns .check {
     
       font-size: 1.5vw;
@@ -580,9 +586,9 @@
   
   .btm-cart {
     display: flex;
-    align-items: center;
-    justify-content: right;
-    gap: 20vw;
+    gap: 15vw;
+    align-items: flex-end;
+    padding: 3vw;
   }
   
   .btns .continue {
@@ -618,6 +624,10 @@
   
   .total{
     margin-top: 5vw;
+    margin-top: 5vw;
+    display: flex;
+    gap: 2vw;
+    align-items: center;
   }
   
   

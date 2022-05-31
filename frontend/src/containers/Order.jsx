@@ -109,7 +109,7 @@ const Order = () => {
                                     </tr>
                                 ))}
 
-                            <tr class="total">
+                            <tr class="items">
                                 <td>
                                     <h1>Total Price</h1>
                                 </td>

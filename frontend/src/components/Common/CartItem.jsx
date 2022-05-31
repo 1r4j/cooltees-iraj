@@ -31,7 +31,7 @@ const CartItem = ({ cart, quantity, cartId }) => {
                         <h1>{cart.name}</h1>
                     </div>
                 </td>
-                <td><p>XL</p></td>
+                {/* <td><p>XL</p></td> */}
 
                 <td>
                     <button class="amount">
