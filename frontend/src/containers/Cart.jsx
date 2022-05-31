@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Item from '../components/Common/Item';
+import CartItem from '../components/Common/CartItem';
 import { fetchCarts } from '../reducks/carts/operations';
 import { fetchItems } from '../reducks/items/operations';
-import { getCarts } from '../reducks/carts/selectors';
+import { getCarts, getSubtotal } from '../reducks/carts/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../reducks/users/selectors';
 import { getItems } from '../reducks/items/selectors';
@@ -12,8 +12,10 @@ const Cart = () => {
     const selector = useSelector(state => state);
     const dispatch = useDispatch();
     const carts = getCarts(selector);
+    const subtotal = getSubtotal(selector);
     const user = getUsers(selector);
     const items = getItems(selector);
+
 
     useEffect(() => {
         dispatch(fetchItems());
@@ -28,6 +30,7 @@ const Cart = () => {
 
             <div class="cart-container">
                 <h1 id="shop">Shopping List</h1>
+
                 <table>
                     <thead>
                         <tr>
@@ -39,34 +42,36 @@ const Cart = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            {
-                                (carts,
-                                    items &&
-                                    carts.map(cart => (
-                                        <li>
-                                            <Item
-                                                cart={cart.item}
-                                                cartId={cart.id}
-                                                key={cart.item.id}
-                                                quantity={cart.quantity}
-                                            />
-                                        </li>
-                                    )))
-                            }
 
-                        </tr>
+
+                        {
+                            (carts, items && carts.map(cart => (
+
+
+
+                                <CartItem
+                                    cart={cart.item}
+                                    cartId={cart.id}
+                                    key={cart.item.id}
+                                    quantity={cart.quantity}
+                                />
+
+
+                            )))
+                        }
+
+
                     </tbody>
                 </table>
 
                 <div class="btm-cart">
                     <div class="total">
-                        <p>Total Cost</p>
-                        <h1>$229</h1>
+                        <p>Total Cost:$</p>
+                        <h1>{subtotal.toFixed(2)}</h1>
                     </div>
                     <div class="btns">
-                        <button class="continue">Continue Shopping</button>
-                        <button class="next">Next Step</button>
+                        <a href="/"><button class="continue">Continue Shopping</button></a>
+                        <a href="/order"><button class="next">Next Step</button></a>
                     </div>
                 </div>
             </div>

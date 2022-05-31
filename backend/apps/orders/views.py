@@ -51,3 +51,6 @@ class OrderAdd(CustomLoginRequiredMixin, generics.CreateAPIView):
 
         serializer = OrderSerializer([order], many=True)
         return Response(serializer.data[0])
+
+    def get_paginated_response(self, data):
+        return Response(data)

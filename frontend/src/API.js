@@ -2,7 +2,15 @@ import axios from 'axios';
 const LOGIN_USER_KEY = 'LOGIN_USER_KEY';
 
 var baseURL;
-baseURL = 'http://127.0.0.1:8000/';
+if (
+    process.env.REACT_APP_ENVIRONMENT &&
+    process.env.REACT_APP_ENVIRONMENT === "PRODUCTION"
+) {
+    baseURL = process.env.REACT_APP_API_BASE_URL;
+} else {
+    baseURL = "http://127.0.0.1:8000/";
+}
+// baseURL = 'http://127.0.0.1:8000/';
 
 const api = axios.create({
     baseURL: baseURL,
@@ -16,7 +24,7 @@ const api = axios.create({
  */
 api.interceptors.request.use(
     config => {
-        if (config.requireToken && localStorage.getItem(LOGIN_USER_KEY)) {
+        if (localStorage.getItem(LOGIN_USER_KEY)) {
             config.headers.common['Authorization'] = JSON.parse(localStorage.getItem(LOGIN_USER_KEY)).token;
         }
 
@@ -46,8 +54,8 @@ export default class API {
             .catch(error => {
                 throw new Error(error);
             })
-        return savedPost
-    }
+        return savedPost;
+    };
 
     signIn = async (email, password) => {
         const savedPost = await api
@@ -74,9 +82,7 @@ export default class API {
                 throw new Error(error)
             });
 
-        return posts
-
-
+        return posts;
     };
 
 
@@ -97,15 +103,13 @@ export default class API {
         return items;
     };
 
-
     // ///////////////////////////////////////
     // Carts
     // //////////////////////////////////////
 
     getCarts = async () => {
-        let url = '/carts/';
         const carts = await api
-            .get(url)
+            .get('/carts/', { requireToken: true })
             .then(response => {
                 return response.data;
             })
@@ -117,7 +121,7 @@ export default class API {
 
     addCarts = async item_id => {
         const savedCart = await api
-            .post('/cart/add/', {
+            .post('/carts/add/', {
                 item: item_id,
                 quantity: 1
             })
@@ -132,7 +136,7 @@ export default class API {
 
     updateCarts = async (cart_id, quantity) => {
         const savedCart = await api
-            .put('/cart/update/' + cart_id + '/', {
+            .put('/carts/update/' + cart_id + '/', {
                 quantity: quantity
             })
             .then(response => {
@@ -163,7 +167,7 @@ export default class API {
 
     orderAdd = async (params = {}) => {
         const order = await api
-            .post('/orde/add/', params)
+            .post('/orders/add/', params)
             .then(response => {
                 return response.data;
             })

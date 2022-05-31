@@ -16,6 +16,10 @@ const initialState = {
         list: [],
         subtotal: 0
     },
+    order: {
+        list: [],
+        subtotal: 0
+    }
 };
 
 

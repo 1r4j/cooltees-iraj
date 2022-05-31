@@ -81,7 +81,8 @@ export const decreaseCart = (cart_id) => {
                     alert("Failed to connect API to decrease cart's quantity");
                     console.log(error);
                 });
-        } else {
+        }
+        else {
             // if quantity is 0, delete
             return api
                 .deleteCarts(cart_id)

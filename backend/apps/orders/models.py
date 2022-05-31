@@ -12,7 +12,7 @@ class Order(models.Model):
         User, on_delete=models.CASCADE, db_index=True
     )
     total_price = models.DecimalField(
-        'Total Price', blank=False, null=False, max_digits=11, decimal_places=2
+        'Total Price', blank=False, null=False, max_digits=111, decimal_places=20
     )
     full_name = models.CharField(
         'Full Name', blank=False, null=False, max_length=25, db_index=True
@@ -21,7 +21,7 @@ class Order(models.Model):
         'Address Line1', blank=False, null=False, max_length=250, db_index=True
     )
     address_line2 = models.CharField(
-        'Address Line2', blank=False, null=False, max_length=250, db_index=True
+        'Address Line2', blank=True, null=True, max_length=250, db_index=True
     )
     city = models.CharField(
         'City', blank=False, null=False, max_length=25, db_index=True

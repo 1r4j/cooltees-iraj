@@ -11,7 +11,7 @@ from .models import Cart
 from .forms import CartForm
 
 
-class CartList(generics.ListAPIView):
+class CartList(CustomLoginRequiredMixin, generics.ListAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
     # filter_backends = [DjangoFilterBackend]
@@ -22,8 +22,11 @@ class CartList(generics.ListAPIView):
             '-created_at').filter(user=request.login_user)
         return self.list(request, *args, **kwargs)
 
+    def get_paginated_response(self, data):
+        return Response(data)
 
-class CartAdd(generics.CreateAPIView):
+
+class CartAdd(CustomLoginRequiredMixin, generics.CreateAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartAddSerializer
 
@@ -32,8 +35,11 @@ class CartAdd(generics.CreateAPIView):
         request.data['user'] = request.login_user.id
         return self.create(request, *args, **kwargs)
 
+    def get_paginated_response(self, data):
+        return Response(data)
 
-class CartDelete(generics.DestroyAPIView):
+
+class CartDelete(CustomLoginRequiredMixin, generics.DestroyAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
 
@@ -48,8 +54,11 @@ class CartDelete(generics.DestroyAPIView):
             return response
         return self.destroy(request, *args, **kwargs)
 
+    def get_paginated_response(self, data):
+        return Response(data)
 
-class CartUpdate(generics.UpdateAPIView):
+
+class CartUpdate(CustomLoginRequiredMixin, generics.UpdateAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
 
@@ -67,3 +76,6 @@ class CartUpdate(generics.UpdateAPIView):
         cart.save()
         serializer = CartSerializer([cart], many=True)
         return Response(serializer.data[0])
+
+    def get_paginated_response(self, data):
+        return Response(data)

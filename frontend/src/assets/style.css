@@ -50,10 +50,12 @@
     padding-top: 15%;
   }
   
-  hr {
+   hr #top {
     border: 0;
+    width:37vw;
     background-color: black;
-    height: 0.5vw;
+    height: 0.2vw;
+
   }
   /******************************** GRIDS ********************************/
   
@@ -89,7 +91,7 @@
   }
 
 .card {
-    margin-top: 5vw;
+    
   }
   
   .selected-just-for-you .card .info {
@@ -239,6 +241,24 @@
     gap: 1vw;
     font-size: 1vw;
     margin-bottom: 2vw;
+  }
+  
+  .btm-foot {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 20vw;
+  }
+  
+  .btns .check {
+    
+      font-size: 1.5vw;
+      font-weight: bold;
+      border: 0.1vw solid #cecece;
+      background-color: white;
+      border-radius: 2vw;
+      padding: 0.5vw 2vw;
+      gap: 1vw;
   }
   
   
@@ -596,6 +616,9 @@
     font-size:2vw;
   }
   
+  .total{
+    margin-top: 5vw;
+  }
   
   
   
@@ -729,8 +752,8 @@
     width: 1vw;
   }
   
-  hr{
-    width:34vw;
-    height: .2vw;
+  .shipment hr {
+    width:31vw;
+    background-color: black;
     margin-left: 3vw;
   }
