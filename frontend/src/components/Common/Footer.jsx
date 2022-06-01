@@ -53,12 +53,12 @@ export default function Footer({ price }) {
 
                 <div class="about-us">
                     <p class="info">
-                        Premium Quality soft drinks, hot drinks, soda & energy drinks at the
-                        best and most affordable price. we have a new offer every day for 365
+                        Premium Quality Clothes at the
+                        best and most affordable price. we have new offers every day for 365
                         days
                     </p>
                     <h2>Contact Us</h2>
-                    <p>E-maildrink@cooltees.com|hotline 1-800-007-7777</p>
+                    <p>E-mail US@cooltees.com|hotline 1-800-007-7777</p>
                 </div>
                 <div class="copyright">
                     <img src={cr} alt="copyright" />
