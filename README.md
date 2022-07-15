@@ -1,7 +1,7 @@
-# Forum App in React & Redux + Django
+# CoolTees in React & Redux + Django
 
 ```
-Forum App, with a frontend built in React & Redux and a backend built in Django API.
+CoolTees, with a frontend built in React & Redux and a backend built in Django API.
 ```
 
 ## Live Demo
@@ -24,7 +24,7 @@ Check out [API LIVE DEMO](https://backend-cooltees.herokuapp.com/) here!!
 1. Git Clone
 
 ```
-git clone git@github.com:Tech-i-s/techis-wd-forum-django-react.git
+git clone https://github.com/1r4j/cooltees-iraj.git
 ```
 
 2. Backend setting
